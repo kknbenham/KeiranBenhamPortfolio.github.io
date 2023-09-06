@@ -1,0 +1,234 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Data Extraction and Manipulation Using Python</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a class="logo">Python Projects</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li><a href="index.html">Portfolio</a></li>
+							<li><a href="python_projects.html">Python Projects</a></li>
+							<li class="active"><a href="Data Extraction and Manipulation in Python.html">Data Extraction and Manipulation in Python</a></li>
+							
+						</ul>
+						<ul class="icons">
+							<li><a href="https://www.linkedin.com/in/keiran-benham" target="_blank" class="icon brands alt fa-linkedin"><span class="label">LinkedIn</span></a></li>		
+							<li><a href="https://github.com/kknbenham" target="_blank" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									<span class="date">September 06, 2023</span>
+									<h1>Extracting and Manipulating Data<br />
+									from a CSV file in Pythyon</h1>
+									<p>Click the button below to download the CSV file to view the original Pokemon Database data:</p>
+									<a href="documents/pokemon_database.csv"
+									Download = "Pokemon Database">
+										<button type = "button"> Database File </button>
+									</a>
+									<p></p>
+									<p>	Click the buttons below to view the output files for this project. The first file is a filtered list of the Top 20 Pokemon with the highest base stat totals. The second file is the average base stat total of the Top 20 Pokemon by Generation:</p>
+									<a href="documents/Top_20_BST_Pokemon_by_Gen.csv"
+									Download = "Top 20 BST by Generation">
+										<button type = "button"> Top 20 Pokemon by Generation </button>
+									</a>
+									<a href="documents/Pokemon_BST_Generations.csv"
+									Download = "Average BST by Generation">
+										<button type = "button"> Average BST by Generation </button>
+									</a>
+								</header>
+								<div class="image main"><img src="images/pokemon wallpaper.jpg" alt="" /></div>
+								<header>
+									<h3>Why undertake this project?</h3>
+								</header>
+								<P>One of the challenges I set for myself in 2023 was to begin learning a programming language. After some research, I decided that Python would be the most suitable language for me to learn, as it is widely regarded as a beginner-friendly language and would be useful in my career as a Data Analyst.</P>
+								<p>After spending some time learning the basics of Python, I wanted to put my newly developed skills to the test, whilst also utilising some of my fundamental skills as a Data Analyst.</p>
+								<p>In this project, I will demonstrate how to read and write CSV files using Python and also perform simple data extraction and manipulation tasks. For clarification, all code was written in Visual Studio Code and I was using Python version 3.10.9 from the Anaconda Distribution package.</p>
+								<header>
+									<h3>The Task</h3>
+								</header>
+								<p>Firstly, I needed a dataset to work with. As this was my first project using Python, I wanted the subject to be something fun and light-hearted. Fortunately, I had been compiling a dataset myself based on a childhood hobby of mine, Pokemon. For those of you not aware of what Pokemon is, Pokemon is a franchise originally stemming from a videogame released in 1995-96. Since then, the franchise has exploded into other mediums such as anime, manga, toys, trading cards, etc., the list is endless... However, what most people don't realise is that the Pokemon videogames are FILLED with mathematics and data! For the purposes of this project, all you need to understand is that each Pokemon has their own individual overall numbered stats called "base stat totals" or BST for short. Generally, the higher the BST the "stronger" the Pokemon. I won't be delving into stats further than what has already been mentioned in this project however, I will be exploring this in detail in future projects.</p>
+								<p>Now that I have the dataset I want to work with, lets look at working with the data in Python. I have included the full code in the pictures below:</p>
+								<div class="image fit"><img src="images/setting up dataframes.jpg" alt="" /></div>
+								<div class="image fit"><img src="images/top 20 creation.jpg" alt="" /></div>
+								<div class="image fit"><img src="images/Average BST top 20.jpg" alt="" /></div>
+								<p>In order to understand what this script is doing, lets break it down into steps. I have also included line references in the steps to identify where in the script we are looking:
+									<ol>
+										<li>Import necessary libraries <b>(lines 1-3)</b></li>
+										<li>Load Pokémon data from a CSV file into a DataFrame <b>(line 7)</b></li>
+										<li>Create a filtered DataFrame without Mega Pokémon <b>(line 11)</b></li>
+										<li>Create sub-tables based on Pokémon generations <b>(lines 15-22)</b></li>
+										<li>Create DataFrames for Pokémon with a status of "Normal" <b>(lines 26-33)</b></li>
+										<li>Open a CSV file for writing the top 20 Pokémon by base stats for each generation <b>(line 36)</b></li>
+										<li>Write header and data rows to the CSV file <b>(line 38-49)</b></li>
+										<li>Restore the standard output <b>(line 52)</b></li>
+										<li>Open a CSV file for writing the average base stat totals for each generation <b>(line 55)</b></li>
+										<li>Write header and data rows to the second CSV file <b>(line 57-70)</b></li>
+										<li>Restore the standard output again <b>(line 73)</b></li>
+									</ol>
+								</p>
+								<h4>The Steps Breakdown</h4>
+								<p>Step 1 - Import necessary libraries <b>(lines 1-3)</b>:
+									<ul>
+										<li>'pandas' is imported as 'pd' for data manipulation.</li>
+										<li>'sys' is imported to work with system-specific parameters and functions.</li>
+										<li>'csv' is imported to read and write CSV files.</li>
+									</ul>
+								</p>
+								<p>Step 2 - Load Pokémon data from a CSV file into a DataFrame <b>(line 7)</b></b>:
+									<ul>
+										<li>It reads a CSV file named 'Pokemon Database.csv' located at the specified path into a Pandas DataFrame named 'df'.</li>
+									</ul>
+								</p>
+								<p>Step 3 - Create a filtered DataFrame without Mega Pokémon <b>(line 11)</b></b>:
+									<ul>
+										<li>A new DataFrame 'df_no_mega' is created by filtering out rows where the 'mega' column is not equal to True (essentially excluding Mega Pokémon).</li>
+										<li>The filtered DataFrame is then sorted by the 'base_stat_total' column in descending order, which sorts the Pokémon by their base stats.</li>
+									</ul>
+								</p>
+								<p>Step 4 - Create sub-tables based on Pokémon generations <b>(lines 15-22)</b></b>:
+									<ul>
+										<li>Separate DataFrames are created for each Pokémon generation (Gen 1 to Gen 8) by filtering rows based on the 'generation' column.</li>
+									</ul>
+								</p>
+								<p>Step 5 - Create DataFrames for Pokémon with a status of "Normal" <b>(lines 26-33)</b>:
+									<ul>
+										<li>For each generation, a new DataFrame is created that further filters the Pokémon by their 'status' column, specifically selecting those with a status of "Normal."</li>
+									</ul>
+								</p>
+								<p>Step 6 - Open a CSV file for writing the top 20 Pokémon by base stats for each generation <b>(line 36)</b>:
+									<ul>
+										<li>The script opens a CSV file named 'Top_20_BST_Pokemon_by_Gen.csv' in write mode, ready to write data.</li>
+									</ul>
+								</p>
+								<p>Step 7 - Write header and data rows to the CSV file <b>(line 38-49)</b>:
+									<ul>
+										<li>For each generation, the script extracts the top 20 Pokémon from the 'gen_X_normal' DataFrames (X represents the generation number) and writes their 'pokedex_number,' 'name,' and 'base_stat_total' to the CSV file.</li>
+									</ul>
+								</p>
+								<p>Step 8 - Restore the standard output <b>(line 52)</b>:
+									<ul>
+										<li>After writing data to the first CSV file, the standard output is restored to its default value, which is usually the console.</li>
+									</ul>
+								</p>
+								<p>Step 9 - Open a CSV file for writing the average base stat totals for each generation <b>(line 55)</b>:
+									<ul>
+										<li>The script opens another CSV file named 'Pokemon_BST_Generations.csv' in write mode.</li>
+									</ul>
+								</p>
+								<p>Step 10 - Write header and data rows to the second CSV file <b>(line 57-70)</b>:
+									<ul>
+										<li>For each generation, the script calculates the average base stat total for the top 20 Pokémon and writes it to the CSV file.</li>
+									</ul>
+								</p>
+								<p>Step 11 - Restore the standard output again <b>(line 73)</b>:
+									<ul>
+										<li>Finally, the standard output is restored again to its default value.</li>
+									</ul>
+								</p>
+								<p>In the breakdown above, I have highlighted the component parts of the script and identified what each component is doing when run. If you are trying to replicate this script at home, please be aware that on line 7, where "filepath" is specified, you will need to replace this with the actual file path of where you have saved the Pokemon Database.csv document.</p>
+								<header>
+									<h3>Conclusion</h3>
+								</header>
+								<p>In this project, I have demonstrated some of the skills I have learnt using the Python programming language. I have also demonstrated how to extract and manipulate data from a datasource.</p>
+								<p>In future projects, I will be looking to demonstrate further Python skills, as well as utilising other skills of a Data Analyst such as, analysing and visualising data.</p>
+								<p>I hope you all enjoyed reading this project as much as I enjoyed making it! Please feel free to have a go yourself. If anyone has any questions regarding this project, you can reach out to me on LinkedIn using the links provided at the top of this page.</p>
+								<p>Thank you all for reading!</p>
+
+
+							</section>
+
+					</div>
+
+				<!-- Footer -->
+					<!--<footer id="footer">
+						<section>
+							<form method="post" action="#">
+								<div class="fields">
+									<div class="field">
+										<label for="name">Name</label>
+										<input type="text" name="name" id="name" />
+									</div>
+									<div class="field">
+										<label for="email">Email</label>
+										<input type="text" name="email" id="email" />
+									</div>
+									<div class="field">
+										<label for="message">Message</label>
+										<textarea name="message" id="message" rows="3"></textarea>
+									</div>
+								</div>
+								<ul class="actions">
+									<li><input type="submit" value="Send Message" /></li>
+								</ul>
+							</form>
+						</section>
+						<section class="split contact">
+							<section class="alt">
+								<h3>Address</h3>
+								<p>1234 Somewhere Road #87257<br />
+								Nashville, TN 00000-0000</p>
+							</section>
+							<section>
+								<h3>Phone</h3>
+								<p><a href="#">(000) 000-0000</a></p>
+							</section>
+							<section>
+								<h3>Email</h3>
+								<p><a href="#">info@untitled.tld</a></p>
+							</section>
+							<section>
+								<h3>Social</h3>
+								<ul class="icons alt">
+									<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
+									<li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
+									<li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+									<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+								</ul>
+							</section>
+						</section>
+					</footer>-->
+
+				<!-- Copyright -->
+					<div id="copyright">
+						<ul><li>&copy; Keiran Benham</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
